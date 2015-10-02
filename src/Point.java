@@ -7,9 +7,16 @@ public class Point implements Comparable<Point>{
 	public Edge[] adjacencies;
 	public double minDistance = Double.POSITIVE_INFINITY;
 	public Point previous = null;
+	public ArrayList<Edge> list = new ArrayList<Edge>();
 	
 	Point(String name){
 		this.name = name;
+	}
+	
+	Point( double x, double y){
+
+		this.x = x;
+		this.y = y;
 	}
 	
 	Point(String name, double x, double y){
@@ -32,10 +39,12 @@ public class Point implements Comparable<Point>{
 	public String toString(){
 		return this.name;
 	}
-	public void removeEdges(){
+	public void removeDistances(){
 		this.previous = null;
-		this.adjacencies = null;
 		this.minDistance = Double.POSITIVE_INFINITY;
+	}
+	public void addAdjacency(Edge e){
+		this.list.add(e);
 	}
 
 }
