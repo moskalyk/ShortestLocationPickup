@@ -4,8 +4,15 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 public class Dijkstra {
+
+	
 	public static void main(String[] args)
     {
+		boolean checkB = true;
+		
+		//uncomment the next line to check the path and distance of B
+		//checkB = false;
+		
         //Instantiate all Destination Points 
         Point A = new Point("A", 3.0, 3.0);
         Point B = new Point("B", 18.0, 11.0);
@@ -25,24 +32,7 @@ public class Dijkstra {
         Point N = new Point("N", 16.0, 9.0);
         Point O = new Point("O", 17.0, 4.0);
         Point P = new Point("P", 19.0, 8.0);
-        System.out.println(computeEdges(A, E));
-        System.out.println(computeEdges(E, C));
-        System.out.println(computeEdges(C, E));
-        System.out.println(computeEdges(E, G));
-        System.out.println(computeEdges(G, L));
-        System.out.println(computeEdges(L, D));
-        System.out.println(computeEdges(D, N));
-        System.out.println(computeEdges(N, B));
-        
-        System.out.println("--------");
-        System.out.println(computeEdges(C, E));
-        System.out.println(computeEdges(E, A));
-        System.out.println(computeEdges(A, E));
-        System.out.println(computeEdges(E, G));
-        System.out.println(computeEdges(G, K));
-        System.out.println(computeEdges(K, B));
-        System.out.println(computeEdges(B, N));
-        System.out.println(computeEdges(N, D));
+
         
         // set the edges and weight
         A.adjacencies = new Edge[]{ new Edge(E, computeEdges(A, E)), new Edge(F, computeEdges(A, F)) };
@@ -149,13 +139,8 @@ public class Dijkstra {
 
         B_D.addPath(getShortestPath(D));
         double path1 = computeFullDistance(A_C, C_D, D_B);
-        System.out.println("~~~~~~~~~~~~");
-        System.out.println(A_C.getDistance());
-        System.out.println(C_D.getDistance());
-        System.out.println(C_D.getPath());
-        System.out.println(D_B.getDistance());
         double path2 = computeFullDistance(C_A, A_B, B_D);
-        if((path1 < path2)){
+        if(checkB && (path1 < path2)){
         	System.out.println("Start from A!");
         	List<Point> route = new ArrayList<Point>(A_C.getPath());
         	List<Point> C_DLessEnd = C_D.getPath();
