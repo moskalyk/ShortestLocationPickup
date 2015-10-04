@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Point implements Comparable<Point>{
 	private String name;
@@ -7,22 +6,16 @@ public class Point implements Comparable<Point>{
 	private Edge[] adjacencies;
 	private double minDistance = Double.POSITIVE_INFINITY;
 	private Point previous = null;
-	private ArrayList<Edge> list = new ArrayList<Edge>();
 	
-	Point(String name){
-		this.name = name;
-	}
-	
-	Point( double x, double y){
-
+	Point(double x, double y){
 		this.x = x;
 		this.y = y;
 	}
 	
-	Point(String name, double x, double y){
-		this.name = name;
+	Point(double x, double y, String name){
 		this.x = x;
 		this.y = y;
+		this.name = name;
 	}
 	
 	public int compareTo(Point other){
@@ -44,10 +37,6 @@ public class Point implements Comparable<Point>{
 	public void removeDistances(){
 		this.previous = null;
 		this.minDistance = Double.POSITIVE_INFINITY;
-	}
-	
-	public void addAdjacency(Edge e){
-		this.list.add(e);
 	}
 	
 	public void setAdjacencies(Edge[] adjacencies){
