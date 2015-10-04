@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
 public class Point implements Comparable<Point>{
-	public String name;
-	public double x;
-	public double y;
-	public Edge[] adjacencies;
-	public double minDistance = Double.POSITIVE_INFINITY;
-	public Point previous = null;
-	public ArrayList<Edge> list = new ArrayList<Edge>();
+	private String name;
+	private double x;
+	private double y;
+	private Edge[] adjacencies;
+	private double minDistance = Double.POSITIVE_INFINITY;
+	private Point previous = null;
+	private ArrayList<Edge> list = new ArrayList<Edge>();
 	
 	Point(String name){
 		this.name = name;
@@ -36,15 +36,42 @@ public class Point implements Comparable<Point>{
 	public double getY(){
 		return this.y;
 	}
+	
 	public String toString(){
 		return this.name;
 	}
+	
 	public void removeDistances(){
 		this.previous = null;
 		this.minDistance = Double.POSITIVE_INFINITY;
 	}
+	
 	public void addAdjacency(Edge e){
 		this.list.add(e);
+	}
+	
+	public void setAdjacencies(Edge[] adjacencies){
+		this.adjacencies = adjacencies;
+	}
+	
+	public Edge[] getAdjacencies(){
+		return this.adjacencies;
+	}
+	
+	public void setMinimumDistance(double minDistance){
+		this.minDistance = minDistance;
+	}
+	
+	public double getMinimumDistance(){
+		return this.minDistance;
+	}
+	
+	public void setPrevious(Point previous){
+		this.previous = previous;
+	}
+	
+	public Point getPrevious(){
+		return this.previous;
 	}
 
 }

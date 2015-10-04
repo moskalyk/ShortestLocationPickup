@@ -1,14 +1,14 @@
 import java.util.List;
 
 public class PartialRoute {
-	public Double distance;
-	public List<Point> path;
+	private Double distance;
+	private List<Point> path;
 	
 	PartialRoute(Double distance){
 		this.distance = distance;
 	}
 	
-	public void addPath(List<Point> path){
+	public void setPath(List<Point> path){
 		this.path = path;
 	}
 	
