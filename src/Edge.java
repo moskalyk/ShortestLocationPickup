@@ -1,8 +1,8 @@
 
 
 public class Edge {
-	private final Point target;
-	private final double weight;
+	private Point target;
+	private double weight;
 
 	public Edge(Point target, double weight) {
 		this.target = target;
